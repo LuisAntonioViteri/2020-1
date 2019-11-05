@@ -20,7 +20,9 @@ int main(){
                 printf("Ingrese el radio del circulo:\n");
                 scanf("%f",&radio);
                 printf("El area del circulo es: %2.f\n ",areaCirculo(radio));
-                system("pause");//Pausa hasta aplastar una tecla
+                //system("pause");
+                getchar(); 
+                getchar();
                 system("clear");//limpia la consola
                 break;
             case 2:
