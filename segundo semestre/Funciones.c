@@ -6,13 +6,13 @@ float areaCirculo(float);
 int factorial(int);
 int tablaMul(int,int);
 void funcionPar(int);
-
+void numerosPositivos(int);
 int main(){
     
     int opcion,num,lim;
     float radio;
     do{
-    printf("*Menu Principal*\n1.Area de un circulo\n2.Factorial de un numero\n3.Tabla de un numero\n4.Numero Par\n5.Salir");
+    printf("*Menu Principal*\n1.Area de un circulo\n2.Factorial de un numero\n3.Tabla de un numero\n4.Numero Par\n5.N numeros positivos,negativo,cero\n6.Salir\n");
     scanf("%i",&opcion);
     
         switch(opcion){
@@ -21,7 +21,7 @@ int main(){
                 scanf("%f",&radio);
                 printf("El area del circulo es: %2.f\n ",areaCirculo(radio));
                 system("pause");//Pausa hasta aplastar una tecla
-                system("cls");//limpia la consola
+                system("clear");//limpia la consola
                 break;
             case 2:
                 printf("Ingrese el numero:\n");
@@ -41,9 +41,13 @@ int main(){
                 funcionPar(num);
             break;
             case 5:
+                printf("¿Cuantos numeros va a ingresar?");
+                scanf("%i",&lim);
+                numerosPositivos(lim);
+                break;
+            case 6:
                 exit(0);
                 break;
-                
             default:
                 printf("Ingrese una opcion valida\n");
         }
@@ -83,4 +87,22 @@ void funcionPar(int num){
         printf("Es impar\n");
     }
 }
+void numerosPositivos(int lim){
+    int cont,pos=0,neg=0,cer=0,num;
+    for(cont=1;cont<=lim;cont++){
+        printf("Ingrese el %i numero:\n",cont);
+        scanf("%i",&num);
+        if(num>0){
+            pos++;
+        }else if(num<0){
+            neg++;
+        }else{
+            
+        }
+    }
+    
+    printf("Ha ingresado:\n%i numeros positivos\n%i numero negativos\n%i numeros nulos\n",pos,neg,cer);
+    
+}
+
 
