@@ -3,16 +3,22 @@
 #include <math.h>
 #include <stdlib.h>
 float areaCirculo(float);
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+float areaCirculo(float);
 int factorial(int);
 int tablaMul(int,int);
 void funcionPar(int);
 void numerosPositivos(int);
+void promedioNotas(int,float);
+
 int main(){
     
-    int opcion,num,lim;
-    float radio;
+    int opcion,num,lim,nest;
+    float radio,nnotas;
     do{
-    printf("*Menu Principal*\n1.Area de un circulo\n2.Factorial de un numero\n3.Tabla de un numero\n4.Numero Par\n5.N numeros positivos,negativo,cero\n6.Salir\n");
+    printf("*Menu Principal*\n1.Area de un circulo\n2.Factorial de un numero\n3.Tabla de un numero\n4.Numero Par\n5.N numeros positivos,negativo,cero\n6.Promedio Estudiantes\n7.Salir\n");
     scanf("%i",&opcion);
     
         switch(opcion){
@@ -48,6 +54,14 @@ int main(){
                 numerosPositivos(lim);
                 break;
             case 6:
+                printf("Ingrese el numero de estudiantes:\n");
+                scanf("%i",&nest);
+                printf("Ingrese el numero de notas:");
+                scanf("%f",&nnotas);
+                promedioNotas(nest,nnotas);
+                break;
+                
+            case 7:
                 exit(0);
                 break;
             default:
@@ -105,6 +119,20 @@ void numerosPositivos(int lim){
     
     printf("Ha ingresado:\n%i numeros positivos\n%i numero negativos\n%i numeros nulos\n",pos,neg,cer);
     
+}
+void promedioNotas(int nest,float nnotas){
+    float promedio,suma,nota;
+    int contnum,contest;
+    for(contest=1;contest<=nest;contest++){
+        printf("Ingrese las notas del estudiante:");
+    for(contnum=1;contnum<=nnotas;contnum++){
+        printf("Ingrese la nota %i:\n",contnum);
+        scanf("%f",&nota); 
+        suma=suma+nota;
+    }
+    promedio=suma/nnotas;
+    printf("El promedio del estudiante %i es: %.2f\n",contest,promedio);
+    }
 }
 
 
