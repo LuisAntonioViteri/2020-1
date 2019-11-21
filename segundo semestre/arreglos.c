@@ -5,13 +5,14 @@
 void inicializarArreglo(int[]);
 void datosVector(int);
 void busquedaInfo(int);
+void numerosPos(int);
 
 int main()
 {
    int arreglo[tam]={2,4,5,-1},cant,o;//Inicializa el arreglo
    
    do{
-   printf("*****Menu Principal*****\n1.Inicializacion Arreglo\n2.Datos Vector\n3.Busqueda elementos\n4.Salir\n");
+   printf("*****Menu Principal*****\n1.Inicializacion Arreglo\n2.Datos Vector\n3.Busqueda elementos\n4.Numeros positivos, negativos o ceros\n5.Salir\n");
     scanf("%i",&o);
     
     switch(o){
@@ -38,6 +39,14 @@ int main()
             system("clear");
         break;
         case 4:
+            printf("Ingrese la cantidad de elementos del vector:\n");
+           scanf("%i",&cant);
+           numerosPos(cant);
+           getchar();
+            getchar();
+            system("clear");
+        break;
+        case 5:
             exit(0);
         default:
             printf("Escoga una opcion valida\n");
@@ -94,6 +103,23 @@ void busquedaInfo(int cant){
         c++;
     }
     printf("El numero %i se repite %i veces\n",num,rep);
+}
+
+void numerosPos(int cant){
+    int c,arreglo[cant],pos=0,neg=0,cer=0;
+    for(c=0;c<cant;c++){
+        printf("Ingrese el %i numero:\n",c+1);
+        scanf("%i",&arreglo[c]);
+        if(arreglo[c]>0){
+            pos++;
+        }else if(arreglo[c]<0){
+            neg++;
+        }else{
+            cer++;
+        }
+    }
     
+    printf("Ha ingresado:\n %i numeros positivos\n%i numero negativos\n%i numeros nulos\n",pos,neg,cer);
     
+
 }
